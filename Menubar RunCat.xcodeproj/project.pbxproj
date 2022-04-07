@@ -11,6 +11,9 @@
 		1CEF10A422F922DD00DAD355 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CEF10A322F922DD00DAD355 /* Assets.xcassets */; };
 		1CEF10A722F922DD00DAD355 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CEF10A522F922DD00DAD355 /* Main.storyboard */; };
 		1CEF10B022F9342600DAD355 /* CPU.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEF10AF22F9342600DAD355 /* CPU.swift */; };
+		7174A55427FD8870005329A2 /* Latency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7174A55327FD8870005329A2 /* Latency.swift */; };
+		7174A55627FD895A005329A2 /* SwiftPing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7174A55527FD895A005329A2 /* SwiftPing.swift */; };
+		7174A55827FF0C4B005329A2 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7174A55727FF0C4B005329A2 /* Network.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +24,9 @@
 		1CEF10A822F922DD00DAD355 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1CEF10A922F922DD00DAD355 /* Menubar_RunCat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Menubar_RunCat.entitlements; sourceTree = "<group>"; };
 		1CEF10AF22F9342600DAD355 /* CPU.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPU.swift; sourceTree = "<group>"; };
+		7174A55327FD8870005329A2 /* Latency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Latency.swift; sourceTree = "<group>"; };
+		7174A55527FD895A005329A2 /* SwiftPing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftPing.swift; sourceTree = "<group>"; };
+		7174A55727FF0C4B005329A2 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +65,9 @@
 				1CEF10A522F922DD00DAD355 /* Main.storyboard */,
 				1CEF10A822F922DD00DAD355 /* Info.plist */,
 				1CEF10A922F922DD00DAD355 /* Menubar_RunCat.entitlements */,
+				7174A55327FD8870005329A2 /* Latency.swift */,
+				7174A55527FD895A005329A2 /* SwiftPing.swift */,
+				7174A55727FF0C4B005329A2 /* Network.swift */,
 			);
 			path = "Menubar RunCat";
 			sourceTree = "<group>";
@@ -133,8 +142,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7174A55827FF0C4B005329A2 /* Network.swift in Sources */,
 				1CEF10B022F9342600DAD355 /* CPU.swift in Sources */,
+				7174A55627FD895A005329A2 /* SwiftPing.swift in Sources */,
 				1CEF10A022F922DB00DAD355 /* AppDelegate.swift in Sources */,
+				7174A55427FD8870005329A2 /* Latency.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
