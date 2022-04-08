@@ -10,19 +10,39 @@ import Foundation
 import Darwin
 import SystemConfiguration
 
+typealias gwIPCallback = (String) -> Void // (SCDynamicStore, CFArray, UnsafeMutableRawPointer?) -> Void
+
+var gwIP : String? = nil
+
+let DynamicStore = SCDynamicStoreCreate(
+  nil, "runcat" as CFString,
+  { ( _, _, _ ) in PrimaryIPv4InterfaceChanged() }, nil)!
+
+func PrimaryIPv4InterfaceChanged ( ) {
+  guard let ipv4State = SCDynamicStoreCopyValue(DynamicStore,
+                                                "State:/Network/Global/IPv4" as CFString) as? [CFString: Any]
+  else {
+    return
+  }
+  
+  if let gw = ipv4State[kSCPropNetIPv4Router] as? String {
+    gwIP = gw
+  }
+}
 
 public class Network {
-  static func gatewayIP() -> String? {
+  public init() {
+    SCDynamicStoreSetNotificationKeys(
+        DynamicStore, [ "State:/Network/Global/IPv4" ] as CFArray, nil)
+
+    SCDynamicStoreSetDispatchQueue(DynamicStore, DispatchQueue.main)
     
-    let ds = SCDynamicStoreCreate(kCFAllocatorDefault, "runcat" as CFString, nil, nil)
-    
-    guard let dr = SCDynamicStoreCopyValue(ds, "State:/Network/Global/IPv4" as CFString) else {return nil}
-    
-    if let gw = dr[kSCPropNetIPv4Router] as? String {
-      print(gw)
-      return gw
-    }
-    
-    return nil
+    // fetch gwIP manually during init
+    PrimaryIPv4InterfaceChanged()
   }
+  
+  public func gatewayIP() -> String? {
+    return gwIP
+  }
+  
 }
